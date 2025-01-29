@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 //looks for .ENV and pulls the environment variable into the node process
 
-app.get("/games", async (res, req) => {
+app.get("/games", async (req, res) => {
   const result = await db.query("SELECT * FROM GAMES");
   const games = result.rows;
   res.json(games);
