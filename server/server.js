@@ -34,16 +34,10 @@ app.listen("8080", () => {
 });
 
 app.post("/", async (req, res) => {
-  console.log("req.body", req.body);
-  const { message } = req.body;
-
-  try {
-    if (error) {
-      return res.status(500).json({ error: error.message });
-    }
-
-    res.status(200).json({ status: "Message received!", data });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
+  const gameFromClient = req.body.game;
+  const reviewFromClient = req.body.review;
+  const data = await db.query(
+    `INSERT INTO games (game, review) VALUES ('${gameFromClient}', '${reviewFromClient}')`
+  );
+  res.json(data);
 });
