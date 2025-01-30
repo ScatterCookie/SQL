@@ -4,7 +4,7 @@ function handleSubmitMessageForm(event) {
   event.preventDefault();
 
   const formData = new FormData(messageForm);
-  const messages = Object.fromEntries("message");
+  const message = formData.get("message");
 
   fetch("https://sql-6009.onrender.com/messages", {
     method: "POST",
