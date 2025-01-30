@@ -4,14 +4,14 @@ function handleSubmitGamesForm(event) {
   event.preventDefault();
 
   const formData = new FormData(gamesForm);
-  const games = formData.get("games");
+  const gamesData = formData.get("games");
 
-  fetch("https://sql-6009.onrender.com/", {
+  fetch("https://sql-6009.onrender.com/games", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(games),
+    body: JSON.stringify(gamesData),
   });
 }
 
