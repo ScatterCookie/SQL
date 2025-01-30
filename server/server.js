@@ -29,7 +29,7 @@ app.get("/", async (req, res) => {
     res.send(req.params.id)
   })
 
-app.put("/games/:id", async (res, req) => {
+app.put("/:id", async (res, req) => {
   console.log(req.params.is, req.body)
   const update = await db.query(`
     UPDATE games
@@ -43,9 +43,6 @@ app.put("/games/:id", async (res, req) => {
 });
 
 app.post("/", async (req, res) => {
-
-  const body = req.body;
-  console.log(body);
 
   const gameFromClient = req.body.game;
   const reviewFromClient = req.body.review;

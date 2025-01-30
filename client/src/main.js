@@ -1,35 +1,15 @@
 const gamesForm = document.getElementById("games-form");
 
-async function handleData(){
-  const res = await fetch("https://sql-6009.onrender.com/");
-  const games = await res.json();
-}
-
-function displayGames(param) {
-  param.forEach(singleGame => {
-    const h2 = document.createElement("h2");
-    const pTag = document.createElement("p");
-    const div = document.createElement("div");
-
-    h2.innerText = singleGame.game;
-    pTag.innerText = singleGame.review;
-
-    div.appendChild(h2);
-    div.appendChild(pTag);
-
-    app.appendChild(div);
-  });
-}
-
-handleData();
+gamesForm.addEventListener("submit", handleSubmitGamesForm);
 
 function handleSubmitGamesForm(event) {
   event.preventDefault();
 
   const formData = new FormData(gamesForm);
   const gamesData = formData.get("games");
+  console.log(gamesData);
 
-  fetch("https://sql-6009.onrender.com/", {
+  fetch("https://sql-6009.onrender.com", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -46,4 +26,19 @@ async function displaying() {
 
 displaying();
 
-gamesForm.addEventListener("submit", handleSubmitGamesForm);
+
+function displayGames(param) {
+  param.forEach(singleGame => {
+    const h2 = document.createElement("h2");
+    const pTag = document.createElement("p");
+    const div = document.createElement("div");
+
+    h2.innerText = singleGame.game;
+    pTag.innerText = singleGame.review;
+
+    div.appendChild(h2);
+    div.appendChild(pTag);
+
+    app.appendChild(div);
+  });
+}
