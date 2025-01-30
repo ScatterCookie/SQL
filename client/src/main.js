@@ -11,15 +11,8 @@ function handleSubmitMessageForm(event) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ message }),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Success:", data);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+    body: JSON.stringify(message),
+  });
 }
 
 messageForm.addEventListener("submit", handleSubmitMessageForm);
