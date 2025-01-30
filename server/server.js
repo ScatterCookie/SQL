@@ -22,12 +22,6 @@ app.get("/", async (req, res) => {
   const games = result.rows;
   res.json(games);
 });
-//error handling
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ error: "Something went wrong!" });
-  next();
-});
 
 app.listen("8080", () => {
   console.log("app running on port 8080! http://localhost:8080");
