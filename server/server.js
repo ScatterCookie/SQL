@@ -44,8 +44,10 @@ app.put("/:id", async (req, res) => {
 
 app.post("/", async (req, res) => {
 
-  const gameFromClient = req.body.game;
-  const reviewFromClient = req.body.review;
+  const gameFromClient = req.body.gameName;
+  const reviewFromClient = req.body.content;
+
+  console.log(req.body)
 
   const data = await db.query(
     `INSERT INTO games (game, review) VALUES ('${gameFromClient}', '${reviewFromClient}')`

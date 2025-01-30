@@ -33,9 +33,11 @@ function displayGames(param) {
     const pTag = document.createElement("p");
     const div = document.createElement("div");
 
+    console.log(singleGame);
+
     h2.innerText = singleGame.game;
     pTag.innerText = singleGame.review;
-
+    
     div.appendChild(h2);
     div.appendChild(pTag);
 
