@@ -6,7 +6,7 @@ function handleSubmitGamesForm(event) {
   const formData = new FormData(gamesForm);
   const games = formData.get("games");
 
-  fetch("/", {
+  fetch("https://sql-6009.onrender.com/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
