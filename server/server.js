@@ -29,7 +29,7 @@ app.get("/", async (req, res) => {
     res.send(req.params.id)
   })
 
-app.put("/:id", async (req, req) => {
+app.put("/:id", async (req, res) => {
   console.log(req.params.id, req.body)
   const update = await db.query(`
     UPDATE games
