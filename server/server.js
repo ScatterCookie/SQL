@@ -11,7 +11,7 @@ console.log(process.env.DB_CONN);
 // allows incoming requests from other people
 app.use(
   cors({
-    origin: "https://sql-6009.onrender.com",
+    origin: "https://sql-6009.onrender.com/messages",
     methods: ["GET", "POST"],
     credentials: true,
   })
@@ -46,7 +46,7 @@ app.listen("8080", () => {
   console.log("app running on port 8080! http://localhost:8080");
 });
 
-app.post("https://sql-6009.onrender.com", async (req, res) => {
+app.post("https://sql-6009.onrender.com/messages", async (req, res) => {
   console.log("req.body", req.body);
   const { message } = req.body;
 
