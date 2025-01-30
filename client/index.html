@@ -4,26 +4,40 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="/src/main.js"></script>
+    <script type="module" src="./src/main.js"></script>
+    <link rel="stylesheet" href="./src/style.css">
     <title>My Guestbook</title>
   </head>
   <body>
     <div class="form-container-design">
-      <h1>Leave a message in the guestbook!</h1>
+      <h1>Game Review Time!</h1>
       <form class="form-design" id="message-form">
-        <label class="label-design" for="username">Username:</label>
+        <label class="label-design" for="gameName">Game Name:</label>
         <input
           type="text"
-          name="username"
-          placeholder="Your username"
+          name="gameName"
+          placeholder="Game Name"
           required
         />
-        <label class="label-design" for="content">Leave a message below </label>
+        <label class="label-design" for="content">Leave Your Review</label>
         <textarea
           name="content"
-          id="content"
-          placeholder="Your message"
+          id="review"
+          placeholder="Your Review"
           required
         ></textarea>
+        <input class="submit-style" type="submit" value="Send" />
+        <header class="message-output">
+          <div id="message-counter"></div>
+          <form id="filter-form">
+            <select name="filter" id="filter>">
+              <option value="all">All</option>
+              <option value="Most Recent">Most Recent</option>
+              <option value="Oldest">Oldest</option>
+            </select>
+            <button id="filter-button">Filter</button>
+          </form>
+        </header>
+          <ul id="message-list"></ul>
   </body>
 </html>
