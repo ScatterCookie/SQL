@@ -15,8 +15,16 @@ function handleSubmitGamesForm(event) {
   });
 }
 
+async function displaying() {
+  const res = await fetch("https://sql-6009.onrender.com");
+  const dataGotten = await res.json();
+  displayGames(res);
+}
+
+displaying();
+
 function displayGames(param) {
-  param.array.forEach((singleGame) => {
+  param.forEach(singleGame => {
     const h2 = document.createElement("h2");
     const pTag = document.createElement("p");
     const div = document.createElement("div");
