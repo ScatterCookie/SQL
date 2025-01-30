@@ -1,9 +1,9 @@
 const gamesForm = document.getElementById("games-form");
 
-function handleSubmitMessageForm(event) {
+function handleSubmitGamesForm(event) {
   event.preventDefault();
 
-  const formData = new FormData(messageForm);
+  const formData = new FormData(gamesForm);
   const games = formData.get("games");
 
   fetch("https://sql-6009.onrender.com/games", {
@@ -15,4 +15,4 @@ function handleSubmitMessageForm(event) {
   });
 }
 
-messageForm.addEventListener("submit", handleSubmitMessageForm);
+messageForm.addEventListener("submit", handleSubmitGamesForm);
