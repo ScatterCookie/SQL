@@ -33,7 +33,7 @@ app.listen("8080", () => {
   console.log("app running on port 8080! http://localhost:8080");
 });
 
-app.post("/messages", async (req, res) => {
+app.post("/", async (req, res) => {
   console.log("req.body", req.body);
   const { message } = req.body;
 
