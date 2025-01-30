@@ -21,23 +21,41 @@ app.get("/", async (req, res) => {
   const result = await db.query("SELECT * FROM GAMES");
   const games = result.rows;
   res.json(games);
-});
-//error handling
-app.use((err, req, res, next) => {
-  console.err(err.stack);
-  res.status(500).json({ error: "Something went wrong!" });
-  next();
-});
+})
 
-app.listen("8080", () => {
-  console.log("app running on port 8080! http://localhost:8080");
+  app.delete('/games/:id', async (req, res) => {
+    console.log(req.params.id)
+    const deleted = await db.query(`DELETE FROM games WHERE id = $1`, [req.params.id])
+    res.send(req.params.id)
+  })
+
+app.put("/games/:id", async (res, req) => {
+  console.log(req.params.is, req.body)
+  const update = await db.query(`
+    UPDATE games
+    SET
+    game = $1,
+    review = $2,
+    WHERE id = $3`,
+    [req.body.game, req.body.review, req.params.id]
+  )
+  res.json({params: req.params.id, body: req.body})
 });
 
 app.post("/", async (req, res) => {
+
+  const body = req.body;
+  console.log(body);
+
   const gameFromClient = req.body.game;
   const reviewFromClient = req.body.review;
+
   const data = await db.query(
     `INSERT INTO games (game, review) VALUES ('${gameFromClient}', '${reviewFromClient}')`
   );
   res.json(data);
+});
+
+app.listen("8080", () => {
+  console.log("app running on port 8080! http://localhost:8080");
 });
