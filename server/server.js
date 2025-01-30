@@ -38,11 +38,6 @@ app.post("/messages", async (req, res) => {
   const { message } = req.body;
 
   try {
-    // Insert message into the Supabase database
-    const { data, error } = await supabase
-      .from("messages")
-      .insert([{ message }]);
-
     if (error) {
       return res.status(500).json({ error: error.message });
     }
