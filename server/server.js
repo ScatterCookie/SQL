@@ -29,8 +29,8 @@ app.get("/", async (req, res) => {
     res.send(req.params.id)
   })
 
-app.put("/:id", async (res, req) => {
-  console.log(req.params.is, req.body)
+app.put("/:id", async (req, req) => {
+  console.log(req.params.id, req.body)
   const update = await db.query(`
     UPDATE games
     SET
