@@ -6,7 +6,7 @@ function handleSubmitGamesForm(event) {
   event.preventDefault();
 
   const formData = new FormData(gamesForm);
-  const gamesData = Object.fromEntries("games");
+  const gamesData = Object.fromEntries(formData);
   console.log(gamesData);
 
   fetch("https://sql-6009.onrender.com", {
