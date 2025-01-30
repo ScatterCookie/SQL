@@ -15,4 +15,4 @@ function handleSubmitGamesForm(event) {
   });
 }
 
-messageForm.addEventListener("submit", handleSubmitGamesForm);
+gamesForm.addEventListener("submit", handleSubmitGamesForm);
