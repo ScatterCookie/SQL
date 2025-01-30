@@ -7,16 +7,15 @@ const app = express();
 
 dotenv.config();
 console.log(process.env.DB_CONN);
-const db = new pg.Pool({ connectionString: process.env.DB_CONN });
-
 //use statements
 // allows incoming requests from other people
 app.use(cors());
 //read incoming json
 app.use(express.json());
 //looks for .ENV and pulls the environment variable into the node process
+const db = new pg.Pool({ connectionString: process.env.DB_CONN });
 
-app.get("/games", async (req, res) => {
+app.get("/", async (req, res) => {
   const result = await db.query("SELECT * FROM GAMES");
   const games = result.rows;
   res.json(games);
