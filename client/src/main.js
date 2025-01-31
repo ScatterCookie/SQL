@@ -18,14 +18,11 @@ function handleSubmitGamesForm(event) {
   });
 }
 
-async function displaying() {
+async function fetchData() {
   const res = await fetch("https://sql-6009.onrender.com");
   const dataGotten = await res.json();
   displayGames(dataGotten);
 }
-
-displaying();
-
 
 function displayGames(param) {
   app.innerHTML.div = ''
@@ -53,11 +50,13 @@ function displayGames(param) {
   });
 }
 
+fetchData();
+
 async function handleDelete(id) {
   const res = await fetch(`https://sql-6009.onrender.com/${id}`, {
     method: 'DELETE'
   })
   if (res.ok) {
-    displaying()
+    fetchData()
   }
 }
