@@ -23,7 +23,7 @@ app.get("/", async (req, res) => {
   res.json(games);
 })
 
-  app.delete('/games/:id', async (req, res) => {
+  app.delete('/:id', async (req, res) => {
     console.log(req.params.id)
     const deleted = await db.query(`DELETE FROM games WHERE id = $1`, [req.params.id])
     res.send(req.params.id)
