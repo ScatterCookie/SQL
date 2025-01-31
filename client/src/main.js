@@ -25,7 +25,8 @@ async function fetchData() {
 }
 
 function displayGames(param) {
-  app1.innerHTML = ''
+  const gameListContainer = document.getElementById("comment-container")
+  gameListContainer.innerHTML = ''
   param.forEach(singleGame => {
     const h2 = document.createElement("h2");
     const pTag = document.createElement("p");
@@ -36,17 +37,17 @@ function displayGames(param) {
 
     h2.innerText = singleGame.game;
     pTag.innerText = singleGame.review;
-    deleteButton.innerText = 'X'
+    deleteButton.innerText = 'Delete Review'
 
     deleteButton.addEventListener('click', function() {
       handleDelete(singleGame.id)
     })
     
-    div.appendChild(deleteButton)
     div.appendChild(h2);
     div.appendChild(pTag);
+    div.appendChild(deleteButton)
 
-    app.appendChild(div);
+    gameListContainer.appendChild(div);
   });
 }
 

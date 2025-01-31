@@ -1,12 +1,22 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
+* {
+  font-family: 'Open Sans', sans-serif;
+  color: black;
+  flex-direction: column;
+}
+
 #form-container-design {
   height: 60%;
 }
+
 #message-output {
   flex: auto;
 }
+
 h1 {
   text-align: center;
 }
+
 .form-design {
   padding: 10px;
   margin-bottom: 50px;
@@ -15,25 +25,62 @@ h1 {
   display: flex;
   flex-direction: column;
 }
+
 input {
   border: none;
   padding: 15px;
   margin-bottom: 5px;
   border-radius: 5px;
 }
+
 textarea {
   border: none;
   padding: 15px;
   margin-bottom: 15px;
   border-radius: 5px;
 }
+
 .label-design {
   text-decoration: underline;
   padding-bottom: 4px;
 }
+
 .submit-style {
   padding-top: 5px;
   max-width: 60px;
   align-self: center;
   text-align: left;
+}
+
+@media (min-width: 300px) and (max-width: 450px) {
+
+  body {
+      background-color: rgb(255, 255, 255);
+  }
+
+  h2, p {
+      font-size: 0.7rem;
+  }
+}
+
+@media (min-width: 451px) and (max-width: 600px) {
+
+  body {
+      background-color: rgb(255, 255, 255);
+  }
+
+  h2, p {
+      font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 601px) {
+
+  body {
+      background-color: rgb(255, 255, 255);
+  }
+
+  h2, p {
+      font-size: 1.1rem;
+  }
 }
