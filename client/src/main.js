@@ -58,6 +58,6 @@ async function handleDelete(id) {
     method: 'DELETE'
   })
   if (res.ok) {
-    fetchData()
+    displaying()
   }
 }
