@@ -25,7 +25,7 @@ async function fetchData() {
 }
 
 function displayGames(param) {
-  app.innerHTML.div = ''
+  app1.innerHTML = ''
   param.forEach(singleGame => {
     const h2 = document.createElement("h2");
     const pTag = document.createElement("p");
