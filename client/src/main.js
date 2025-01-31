@@ -28,19 +28,36 @@ displaying();
 
 
 function displayGames(param) {
+  app.innerHTML.div = ''
   param.forEach(singleGame => {
     const h2 = document.createElement("h2");
     const pTag = document.createElement("p");
     const div = document.createElement("div");
+    const deleteButton = document.createElement('button')
 
     console.log(singleGame);
 
     h2.innerText = singleGame.game;
     pTag.innerText = singleGame.review;
+    deleteButton.innerText = 'X'
+
+    deleteButton.addEventListener('click', function() {
+      handleDelete(singleGame.id)
+    })
     
+    div.appendChild(deleteButton)
     div.appendChild(h2);
     div.appendChild(pTag);
 
     app.appendChild(div);
   });
+}
+
+async function handleDelete(id) {
+  const res = await fetch(`https://sql-6009.onrender.com/${id}`, {
+    method: 'DELETE'
+  })
+  if (res.ok) {
+    fetchData()
+  }
 }
